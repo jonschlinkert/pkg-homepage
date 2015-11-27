@@ -1,0 +1,28 @@
+{
+  "name": "pkg-homepage",
+  "description": "Get the homepage URL from a package.json.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/pkg-homepage",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/pkg-homepage",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/pkg-homepage/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": []
+}
