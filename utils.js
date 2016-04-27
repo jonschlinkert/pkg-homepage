@@ -1,22 +1,6 @@
 'use strict';
 
-/**
- * Module dependencies
- */
-
 var utils = require('lazy-cache')(require);
-
-/**
- * Temporarily re-assign `require` to trick browserify and
- * webpack into reconizing lazy dependencies.
- *
- * This tiny bit of ugliness has the huge dual advantage of
- * only loading modules that are actually called at some
- * point in the lifecycle of the application, whilst also
- * allowing browserify and webpack to find modules that
- * are depended on but never actually called.
- */
-
 var fn = require;
 require = utils;
 
@@ -24,14 +8,14 @@ require = utils;
  * Lazily required module dependencies
  */
 
+require('isobject', 'isObject');
 require('parse-github-url', 'parse');
 require('stringify-github-url', 'stringify');
-
-/**
- * Restore `require`
- */
-
 require = fn;
+
+utils.isString = function(val) {
+  return val && typeof val === 'string';
+};
 
 /**
  * Expose `utils` modules

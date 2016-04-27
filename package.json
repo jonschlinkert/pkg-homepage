@@ -1,7 +1,7 @@
 {
   "name": "pkg-homepage",
   "description": "Get or create a homepage URL from the given package.json",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/jonschlinkert/pkg-homepage",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/pkg-homepage",
@@ -21,19 +21,23 @@
     "test": "mocha"
   },
   "dependencies": {
-    "parse-github-url": "^0.2.1",
+    "isobject": "^2.1.0",
+    "lazy-cache": "^1.0.4",
+    "parse-github-url": "^0.3.1",
     "stringify-github-url": "^0.1.0"
   },
   "devDependencies": {
     "gulp-format-md": "^0.1.9",
-    "lazy-cache": "^1.0.3",
-    "mocha": "*"
+    "mocha": "^2.4.5"
   },
   "keywords": [
     "homepage",
     "pkg"
   ],
   "verb": {
+    "plugins": [
+      "gulp-format-md"
+    ],
     "related": {
       "list": [
         "git-branch",
@@ -44,8 +48,16 @@
         "stringify-author"
       ]
     },
-    "plugins": [
-      "gulp-format-md"
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "lint": {
+      "reflinks": true
+    },
+    "reflinks": [
+      "verb"
     ]
   }
 }

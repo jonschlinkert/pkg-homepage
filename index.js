@@ -10,15 +10,23 @@
 var utils = require('./utils');
 
 module.exports = function(pkg) {
-  if (!pkg) return null;
-  if (pkg.homepage) return pkg.homepage;
-  if (!pkg.repository) return null;
-
-  var res = {};
-  if (typeof pkg.repository === 'string') {
-    res = utils.parse(pkg.repository);
-  } else if (typeof pkg.repository === 'object') {
-    res = utils.parse(pkg.repository.url);
+  if (!utils.isObject(pkg)) {
+    throw new TypeError('expected an object');
   }
-  return utils.stringify(res.user, res.repo);
+
+  if (utils.isString(pkg.homepage)) {
+    return pkg.homepage;
+  }
+
+  var repository = pkg.repository;
+  if (typeof repository === 'undefined') {
+    return null;
+  }
+
+  if (utils.isObject(repository)) {
+    repository = repository.url;
+  }
+
+  var parsed = utils.parse(repository);
+  return utils.stringify(parsed.owner, parsed.name);
 };
