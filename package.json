@@ -25,9 +25,14 @@
     "stringify-github-url": "^0.1.0"
   },
   "devDependencies": {
+    "gulp-format-md": "^0.1.9",
     "lazy-cache": "^1.0.3",
     "mocha": "*"
   },
+  "keywords": [
+    "homepage",
+    "pkg"
+  ],
   "verb": {
     "related": {
       "list": [
